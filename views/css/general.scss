@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    min-height: 100vh;
+    // display: flex;
+    // flex-direction: column;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 17px;
+}
+
+a {
+    color: grey;
+    text-decoration: none;
+}
+
+nav {
+    // background: rgb(13, 141, 13);
+    width: 100%;
+    background: linear-gradient(90deg, rgb(7, 141, 185), rgb(8, 58, 109));
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+}
+
+main {
+    flex-grow: 1;
+
+    .center {
+        margin: 40px 0;
+        // box-shadow: 0 4px 8px 0 rgba(0,0,0,0.8);
+        transition: 0.3s;
+        border-radius: 5px;
+        padding: 5px 10px;
+        list-style: none;
+        text-align: center;
+    }
+
+    #name {
+        width: 250px;
+    }
+
+    .label {
+        // background-color: rgb(8, 58, 109);
+        background: linear-gradient(90deg, rgb(7, 141, 185), rgb(8, 58, 109));
+        border-radius: 20px;
+        width: 180px;
+        text-align: center;
+        color: white;
+        padding: 10px 3px;
+        font-weight: bold;
+        margin: 0 auto;
+        transform: translateY(-25px);
+    }
+}
+
+footer {
+    text-align: center;
+    margin: 20px 0;
+    a {
+        font-weight: lighter;
+    }
+}
+
+ul > li {
+    // list-style-type: circle;
+    margin-bottom: 10px;
+}
+
+#name {
+    width: 95%;
+    margin: 10px auto;
+    font-size: 18px;
+    padding: 4px;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    // border: 3px solid rgb(8, 58, 109);
+}
+
+#name:focus {
+    border: 3px solid rgb(8, 58, 109);
+}
+
+.btn-sub {
+    border: 2px solid rgb(8, 58, 109);
+    border-radius: 15px;
+    padding: 10px 5px;
+    font-size: 17px;
+    color:rgb(8, 58, 109);
+    margin: 20px 0;
+}
+
+.center-elements {
+    text-align: center;
+}
+
+
+@media screen and (max-width: 290px) {
+    main {
+        .center {
+            width: 80%;
+        }
+    }
+}
+
+/* Add Message Page */
+.addMessageForm {
+    textarea {
+        min-width: 290px;
+        min-height: 250px;
+        padding: 3px;
+        border-radius: 3px;
+        outline: none;
+        border: none;
+        // border: 1px solid rgb(7, 141, 185);
+    }
+    #submit {
+        min-width: 290px;
+        background: linear-gradient(90deg, rgb(7, 141, 185), rgb(8, 58, 109));
+        color: white;
+        padding: 5px 0;
+        border-radius: 3px;
+        border: none;
+    }
+}

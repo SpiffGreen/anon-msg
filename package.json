@@ -1,0 +1,20 @@
+{
+  "name": "anon-msg",
+  "version": "1.0.0",
+  "description": "Anon-msg is an anonymous messaging platform",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cookies": "^0.8.0",
+    "date-diff": "^0.2.2",
+    "mongoose": "^5.13.0",
+    "mongoose-ttl": "0.0.3",
+    "serve-dot-js": "0.0.1"
+  }
+}

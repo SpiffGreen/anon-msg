@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 17px;
+}
+
+a {
+  color: grey;
+  text-decoration: none;
+}
+
+nav {
+  width: 100%;
+  background: linear-gradient(90deg, #078db9, #083a6d);
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+}
+
+main {
+  flex-grow: 1;
+}
+main .center {
+  margin: 40px 0;
+  transition: 0.3s;
+  border-radius: 5px;
+  padding: 5px 10px;
+  list-style: none;
+  text-align: center;
+}
+main #name {
+  width: 250px;
+}
+main .label {
+  background: linear-gradient(90deg, #078db9, #083a6d);
+  border-radius: 20px;
+  width: 180px;
+  text-align: center;
+  color: white;
+  padding: 10px 3px;
+  font-weight: bold;
+  margin: 0 auto;
+  transform: translateY(-25px);
+}
+
+footer {
+  text-align: center;
+  margin: 20px 0;
+}
+footer a {
+  font-weight: lighter;
+}
+
+ul > li {
+  margin-bottom: 10px;
+}
+
+#name {
+  width: 95%;
+  margin: 10px auto;
+  font-size: 18px;
+  padding: 4px;
+  border-radius: 4px;
+  outline: none;
+  border: none;
+}
+
+#name:focus {
+  border: 3px solid #083a6d;
+}
+
+.btn-sub {
+  border: 2px solid #083a6d;
+  border-radius: 15px;
+  padding: 10px 5px;
+  font-size: 17px;
+  color: #083a6d;
+  margin: 20px 0;
+}
+
+.center-elements {
+  text-align: center;
+}
+
+@media screen and (max-width: 290px) {
+  main .center {
+    width: 80%;
+  }
+}
+/* Add Message Page */
+.addMessageForm textarea {
+  min-width: 290px;
+  min-height: 250px;
+  padding: 3px;
+  border-radius: 3px;
+  outline: none;
+  border: none;
+}
+.addMessageForm #submit {
+  min-width: 290px;
+  background: linear-gradient(90deg, #078db9, #083a6d);
+  color: white;
+  padding: 5px 0;
+  border-radius: 3px;
+  border: none;
+}/*# sourceMappingURL=general.css.map */
