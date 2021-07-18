@@ -14,12 +14,13 @@ serveJS.get("/", (req, res) => {
     const cookie = new Cookies(req, res, {keys});
     const loggedIn = cookie.get("logged_info", {signed: true });
     
-    if (!loggedIn) {    // First time visiting
-        cookie.set('logged_info', "TRUE", { signed: true });
+    // if (!loggedIn) {    // First time visiting
+    //     cookie.set('logged_info', "TRUE", { signed: true });
+    //     res.render("index.html");
+    // } else {    // Already a user, return dashboard
+    //     res.redirect("/dashboard");
+    // }
         res.render("index.html");
-    } else {    // Already a user, return dashboard
-        res.redirect("/dashboard");
-    }
 });
 
 serveJS.post("/", (req, res) => {
