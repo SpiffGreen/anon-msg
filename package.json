@@ -13,8 +13,8 @@
   "dependencies": {
     "cookies": "^0.8.0",
     "date-diff": "^0.2.2",
+    "env-man": "0.0.0",
     "mongoose": "^5.13.0",
-    "mongoose-ttl": "0.0.3",
     "serve-dot-js": "0.0.1"
   }
 }

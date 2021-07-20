@@ -3,7 +3,7 @@ const path = require("path");
 const Cookies = require("cookies");
 
 if(!process.env.NODE_PRODUCTION) {
-    require("env-manager").config(__dirname);
+    require("env-man").config(__dirname);
 }
 
 require("./dbConfig");
