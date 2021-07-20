@@ -9,13 +9,13 @@
 </head>
 <body>
     <!-- Welcome to Anon-msg [time] -->
-    <nav><span>🔐</span>Anon-Message</nav>
+    <require src="./components/navbar.html">
 
     <main>
         <div class="center">
             <div class="label">Anon-Message</div>
             <form class="addMessageForm" action="/add" method="post">
-                <textarea name="message" id="message" placeholder="Tell [name] what you think about him"></textarea> <br>
+                <textarea name="message" id="message" placeholder="Tell [name] about your thoughts"></textarea> <br>
                 <button type="submit" id="submit">Send</button>
             </form>
         </div>
@@ -25,5 +25,40 @@
         <p>&copy; 2021 Spiff Green</p>
         <p><a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a></p>
     </footer>
+
+    <script>
+        const userId = "[id]";
+        const userName = "[name]"
+        window.addEventListener("DOMContentLoaded", runApp);
+
+        function runApp() {
+            const form = document.querySelector("form");
+            form.addEventListener("submit", e => {
+                e.preventDefault();
+
+                const txtArea = document.getElementById("message");
+                const fullId = userName + "=" + userId;
+                fetch("/postmsg", {
+                    method: "POST",
+                    body: JSON.stringify({text: txtArea.value, userId: fullId}),
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                }).then(res => {
+                    // console.log("res: ", res);
+                    res.json();
+                })
+                .then(data => {
+                    if(data.success) {
+                        window.location.assign("/");
+                    }
+                })
+                .catch(err => {
+                    alert("Sorry an error occurred!");
+                    console.log(err);
+                });
+            })
+        }
+    </script>
 </body>
 </html>

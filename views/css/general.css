@@ -22,6 +22,9 @@ nav {
   text-align: center;
   padding: 15px 0;
 }
+nav a {
+  color: white;
+}
 
 main {
   flex-grow: 1;
@@ -109,4 +112,48 @@ ul > li {
   padding: 5px 0;
   border-radius: 3px;
   border: none;
+}
+
+.messages {
+  min-height: 100px;
+}
+
+.noMsg {
+  color: grey;
+  padding: 50px 0;
+  display: block;
+  text-align: center;
+}
+
+.share {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 17px;
+}
+.share #link {
+  font-size: 17px;
+  max-width: 290px;
+  height: 46px;
+  overflow-x: scroll;
+  text-align: center;
+  padding: 3px;
+}
+.share > button {
+  font-size: 17px;
+  padding: 8px 0;
+  min-width: 290px;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  margin-top: 7px;
+}
+.share #whatsapp {
+  background: linear-gradient(90deg, #078db9, #083a6d);
+}
+.share #otherShare,
+.share .execCopy {
+  background: none;
+  color: #078db9;
+  border: 2px solid #078db9;
 }/*# sourceMappingURL=general.css.map */

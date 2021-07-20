@@ -24,6 +24,10 @@ nav {
     color: white;
     text-align: center;
     padding: 15px 0;
+
+    a {
+        color: white;
+    }
 }
 
 main {
@@ -125,5 +129,53 @@ ul > li {
         padding: 5px 0;
         border-radius: 3px;
         border: none;
+    }
+}
+
+.messages {
+    min-height: 100px;
+}
+
+.noMsg {
+    color: grey;
+    padding: 50px 0;
+    display: block;
+    text-align: center;
+}
+
+.share {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 17px;
+
+    #link {
+        font-size: 17px;
+        max-width: 290px;
+        height: 46px;
+        overflow-x: scroll;
+        text-align: center;
+        padding: 3px;
+    }
+    
+    > button {
+        font-size: 17px;
+        padding: 8px 0;
+        min-width: 290px;
+        border: none;
+        border-radius: 3px;
+        color: white;
+        margin-top: 7px;
+    }
+
+    #whatsapp {
+        background: linear-gradient(90deg, rgb(7, 141, 185), rgb(8, 58, 109));
+    }
+
+    #otherShare,
+    .execCopy {
+        background: none;
+        color:rgb(7, 141, 185);
+        border: 2px solid rgb(7, 141, 185);
     }
 }

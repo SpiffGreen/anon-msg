@@ -18,7 +18,7 @@
                 <li>Get unknown feedback from your friends, co-workers and the fams get to learn what they think about you.</li>
                 <li>Messages recieved are displayed in the DashBoard.</li>
             </ul>
-            <form action="/" class="center-elements">
+            <form class="center-elements" action="/" method="POST">
                 <input type="text" name="name" id="name" placeholder="Enter your name">
                 <p><input type="checkbox" name="agree" id="agree"> I agree to <a href="#" style="color: dodgerblue">Terms and condition of website.</a></p>
                 <button type="submit" class="btn-sub">Create your Link</button>
@@ -26,6 +26,37 @@
         </div>
     </main>
 
-    <require src="./components/footer" >
+    <require src="./components/footer" hidden="hidden">
+    <script>
+        window.addEventListener("DOMContentLoaded", runApp);
+
+        function runApp() {
+            const form = document.querySelector("form");
+            form.addEventListener("submit", e => {
+                e.preventDefault();
+                const textInp = document.getElementById("name");
+                const chkBox = document.getElementById("agree");
+
+                if(!chkBox.checked) {
+                    alert("Please read and accept the terms and conditions.");
+                    return;
+                }
+
+                fetch("/", {
+                    method: "POST",
+                    body: JSON.stringify({
+                        username: textInp.value
+                    }),
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                }).then(res => res.json())
+                .then(data => {
+                    if(data.success) window.location.assign("/dashboard");
+                })
+                .catch(err => console.log(err));
+            });
+        }
+    </script>
 </body>
 </html>
