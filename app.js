@@ -34,7 +34,6 @@ serveJS.post("/", async (req, res) => {
     // redirect to dashboard passing its special link
     if(req.body) {
         const name = req.body.username;
-        console.log(req.body);
         const cookie = new Cookies(req, res, {keys});
         cookie.set('user', name + "=" + genId(name), { signed: true });
         res.send({success: true});
@@ -67,7 +66,6 @@ serveJS.get("/postmsg", (req, res) => {
 });
 
 serveJS.post("/getmsgs", async (req, res) => {
-    console.log(req.body.userId);
     try {
         const msg = await Message.find({userId: req.body.userId}).sort({createAt: -1});
         res.send({success: true, data: msg});

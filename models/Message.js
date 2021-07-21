@@ -13,9 +13,9 @@ const schema = new mongoose.Schema({
         type: Date,
         default: Date.now,
         index: {
-            // expires: 259200 // Three days
+            expires: 259200 // Three days
             // expires: 86400 // 24 hours - One day
-            expires: 60 // 1 minute
+            // expires: 60 // 1 minute
         }
     }
 });

@@ -136,6 +136,17 @@ ul > li {
     min-height: 100px;
 }
 
+.msg-btn {
+    padding: 4px 0;
+    min-width: 80px;
+    margin: 0 20px;
+    text-align: center;
+    background: rgb(8, 58, 109) !important;
+    color: white;
+    border: none;
+    outline: none;
+}
+
 .noMsg {
     color: grey;
     padding: 50px 0;
@@ -152,10 +163,13 @@ ul > li {
     #link {
         font-size: 17px;
         max-width: 290px;
-        height: 46px;
-        overflow-x: scroll;
+        // height: 46px;
+        // overflow-x: scroll;
         text-align: center;
         padding: 3px;
+        border: none !important;
+        outline: none !important;
+        text-justify: newspaper;
     }
     
     > button {

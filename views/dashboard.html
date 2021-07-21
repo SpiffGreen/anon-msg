@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DashBoard | Anonymous messages</title>
-    <link rel="stylesheet" href="./css/general.css">
+    <link rel="stylesheet" href="./dist/css/general.min.css">
 </head>
 <body>
     <!-- Welcome to Anon-msg [time] -->
@@ -20,9 +20,9 @@
         </div>
     </main>
     <aside class="share">
-        <div class="copy" id="link">
+        <textarea class="copy" id="link">
             [id]
-        </div>
+        </textarea>
         <button class="execCopy">Copy</button>
         <button id="whatsapp">Share on Whatsapp</button>
         <button id="otherShare">More to Share</button>
@@ -34,8 +34,44 @@
 
         function runApp() {
             const link = document.getElementById("link");
-            link.innerText = location.protocol + "//" + location.hostname + ":" + location.port + "/postmsg?id=" + link.innerText.trim() + "&name=" + "[name]";
+            link.innerText = location.protocol + "//" + location.hostname + ":" + location.port + "/postmsg?id=" + link.innerHTML.trim() + "&name=" + "[name]";
 
+            // Copy
+            const copyBtn = document.querySelector(".execCopy");
+            copyBtn.addEventListener("click", (e) => {
+                link.select();
+                document.execCommand("copy", true, link.innerText);
+                link.blur();
+            });
+
+            // share on whatsapp
+            const waShare = document.getElementById("whatsapp");
+            waShare.addEventListener("click", () => {
+                const uri = encodeURI("https://api.whatsapp.com/send?text=Send me a message on Anon-Msg, I won't know who sent it😊😊 - " + link.innerHTML.trim());
+                window.location.assign(uri);
+            });
+
+            // Share on others
+            const shareOtherBtn = document.getElementById("otherShare");
+            if(navigator.share) {
+                // alert("yes it exists");
+                const shareData = {
+                    title: "Anon-Msg",
+                    text: "Send me a message on Anon-Msg, I won't know who sent it😊😊 - " + link.innerHTML.trim(),
+                    url: link.innerHTML.trim(),
+                }
+
+                shareOtherBtn.addEventListener("click", async (e) => {
+                    try {
+                        await navigator.share(shareData);
+                    } catch (err) {
+                        console.log(err);
+                    }
+                })
+            } else {
+                // alert("No it does not exist in this device");
+                shareOtherBtn.style.display = "none";
+            }
             loadMsg();
         }
 
@@ -50,13 +86,30 @@
             })
             .then(res => res.json())
             .then(data => {
+                // if(data.data.length > 0) viewMsg.innerHTML = "";
                 data.data.forEach(i => {
-                    viewMsg.innerHTML += `<div class="msg-container">
-                            <p class="msg-body">${i.text}</p>
-                            <span class="msg-date">${i.createdAt}</span>
-                            <button class="msg-button">Delete</button>
-                        </div>
-                        `;
+                    const d = new Date(i.createAt);
+                    // viewMsg.innerHTML += `<div class="msg-container">
+                    //         <p class="msg-body">${i.text}</p>
+                            // <span class="msg-date">${d.getDate()}/${d.getMonth()}/${d.getFullYear()}</span>
+                    //         <button class="msg-button">Delete</button>
+                    //     </div>
+                    //     `;
+
+                    const container = document.createElement("div");
+                    container.classList.toggle("msg-container");
+                    const p = document.createElement("p");
+                    p.innerText = i.text;
+                    p.classList.toggle("msg-body");
+                    const span = document.createElement("span");
+                    span.innerText = `${d.getDate()}/${d.getMonth()}/${d.getFullYear()}`;
+                    span.classList.toggle("msg-date");
+                    const button = document.createElement("button");
+                    button.classList.toggle("msg-btn");
+                    button.innerText = "Delete";
+                    container.append(p, span, button);
+                    const br = document.createElement("br");
+                    viewMsg.append(container, br);
                 })
             })
             .catch(err => {
